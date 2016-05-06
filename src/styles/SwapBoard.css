@@ -1,0 +1,344 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #bbb;
+}
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Chrome/Safari/Opera */
+  -khtml-user-select: none;
+  /* Konqueror */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
+#root {
+  display: flex;
+  height: 100%;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+}
+.App {
+  width: 606px;
+  min-height: 598px;
+  height: 700px;
+  box-sizing: border-box;
+  margin: auto auto;
+}
+.Card {
+  display: inline-block;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #f0f0f0;
+  line-height: 98px;
+  margin: 2px;
+}
+.gameover .SwapBoard {
+  pointer-events: none;
+}
+.gameover .SwapBoard header .back {
+  opacity: 0;
+}
+.SwapBoard {
+  font-family: sans-serif;
+  font-size: 32px;
+  width: 606px;
+  margin: 0 auto;
+  min-height: 602px;
+  position: relative;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Chrome/Safari/Opera */
+  -khtml-user-select: none;
+  /* Konqueror */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
+.SwapBoard header .back {
+  transition: opacity 0.5s ease-in-out;
+}
+.SwapBoard .Card {
+  display: inline-block;
+  border-radius: 4px;
+  width: 98px;
+  height: 98px;
+  line-height: 98px;
+  box-sizing: border-box;
+  background-color: #f0f0f0;
+  background-image: linear-gradient(135deg, #ffffff 0%, #f6f6f6 47%, #ededed 100%);
+  text-align: center;
+  transition: transform 0.25s ease-in, opacity 0.5s ease-in, background-color 0.25s ease-out, box-shadow 0.15s ease-out;
+  box-shadow: inset 0 0 8px #444, 0 0 2px black;
+  position: absolute;
+}
+.SwapBoard .Card.selected {
+  box-shadow: inset 0 0 8px #444, 0 0 10px black;
+  background-image: none;
+  background-color: white;
+  color: orange;
+  z-index: 50;
+}
+.SwapBoard .Card.solved {
+  background-image: none;
+  background-color: gold;
+  z-index: 6;
+  opacity: 0;
+  pointer-events: none;
+}
+.SwapBoard .Card:hover {
+  cursor: pointer;
+}
+.SwapBoard .Card .debug {
+  font-size: 14px;
+  position: absolute;
+  left: 5px;
+  margin-top: -35px;
+}
+.SwapBoard header {
+  min-height: 30px;
+  padding: 10px;
+  display: flex;
+  padding-bottom: 20px;
+}
+.SwapBoard header .score {
+  padding-left: 10px;
+  padding-right: 10px;
+  line-height: 56px;
+  flex: 1;
+  text-align: center;
+  box-sizing: border-box;
+}
+.SwapBoard header .lastMatch {
+  box-sizing: border-box;
+  padding-left: 10px;
+  line-height: 50px;
+  flex: 2;
+  text-align: center;
+}
+.SwapBoard header .lastMatch .match {
+  min-height: 52px;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 4px;
+  display: block;
+}
+.SwapBoard header .lastMatch .match .translation {
+  color: #ccc;
+  font-size: 80%;
+}
+.SwapBoard header .back {
+  text-decoration: none;
+  display: inline-block;
+}
+.StackSelect {
+  position: relative;
+  padding-bottom: 50px;
+  height: 600px;
+}
+.StackSelect header.Card {
+  min-height: 49px;
+  display: block;
+  line-height: 40px;
+  width: auto;
+  background: none;
+  font-weight: bold;
+  font-family: sans-serif;
+  color: black;
+  box-shadow: none;
+  text-transform: uppercase;
+  padding: 20px;
+}
+.StackSelect footer.Card {
+  position: absolute;
+  height: 49px;
+  line-height: 40px;
+  display: block;
+  width: 100%;
+  margin-left: 0px;
+  margin-bottom: 0;
+  background-color: #fff;
+  bottom: 0;
+  box-shadow: none;
+  text-align: center;
+}
+.StackSelect footer.Card button {
+  font-size: 24px;
+  padding: 15px 30px;
+}
+.StackSelect .Card {
+  width: 100%;
+  padding: 5px;
+  font-size: 22px;
+  text-align: left;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Chrome/Safari/Opera */
+  -khtml-user-select: none;
+  /* Konqueror */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                  not supported by any browser */
+  cursor: pointer;
+  position: relative;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  box-shadow: inset 0 0 8px #444, 0 0 2px black;
+  line-height: 22px;
+  box-shadow: none;
+  border: 0;
+  background-color: white;
+  margin-bottom: 15px;
+  font-weight: normal;
+}
+.StackSelect .Card.StackCard {
+  opacity: 0.33;
+}
+.StackSelect .Card label {
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px 5px;
+  font-size: 28px;
+  font-weight: bold;
+  color: black;
+}
+.StackSelect .Card .confidence {
+  display: block;
+  color: black;
+  left: 0;
+  width: 100%;
+  line-height: 22px;
+  font-size: 20px;
+  box-sizing: border-box;
+  padding: 5px;
+  font-weight: normal;
+}
+.StackSelect .StackCard {
+  padding-right: 100px;
+}
+.StackSelect .StackCard.selected {
+  opacity: 1;
+}
+.StackSelect .StackCard:after {
+  content: " ";
+  position: absolute;
+  right: 0;
+  top: 25px;
+  width: 50px;
+  height: 50px;
+  border: 3px solid black;
+  text-align: center;
+  font-size: 28px;
+  line-height: 50px;
+}
+.StackSelect .StackCard.selected:after {
+  content: "✓";
+}
+.GameOverWrapper {
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+  transform: translate(-200px, 0px);
+  pointer-events: none;
+}
+.GameOverWrapper.show {
+  pointer-events: all;
+  opacity: 1;
+  transform: translate(0px, 0px);
+}
+.GameOver {
+  position: absolute;
+  width: 100%;
+  margin-top: 100px;
+  height: 100%;
+}
+.GameOver h1 {
+  text-align: center;
+  font-size: 40px;
+  font-family: sans-serif;
+  text-transform: uppercase;
+}
+.GameOver .results {
+  max-height: 460px;
+  overflow-y: auto;
+}
+.GameOver .results .stat {
+  display: flex;
+}
+.GameOver .results .stat label {
+  padding: 5px;
+  box-sizing: border-box;
+  font-size: 28px;
+  padding: 10px 30px;
+  min-width: 150px;
+}
+.GameOver .results .stat div.progress {
+  flex: 1;
+  padding: 10px;
+  padding-top: 12px;
+}
+.GameOver footer {
+  position: absolute;
+  top: 500px;
+  width: 100%;
+  display: flex;
+}
+.GameOver footer > div {
+  flex: 1;
+  box-sizing: border-box;
+  padding: 10px;
+}
+.GameOver footer > div button {
+  width: 100%;
+  display: block;
+  padding: 10px 30px;
+  font-size: 24px;
+}
+.GameOver footer > div button img {
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.progress-bar {
+  display: block;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  background-color: #eee;
+  border-radius: 16px;
+  position: relative;
+}
+.progress-bar .bar {
+  height: 26px;
+  min-width: 26px;
+  border-radius: 16px;
+  background-color: green;
+  transition: background-color 0.5s ease-in-out, width 0.5s ease-in-out;
+}
+.progress-bar .percent {
+  position: absolute;
+  right: 5px;
+  top: 3px;
+  color: black;
+  font-family: sans-serif;
+}

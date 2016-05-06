@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "uk.co.goldsaucer.gordon"
+        versionCode = "10" 
+        version     = "1.0.0" >
+
+    <name>Kana Practice</name>
+
+    <description>
+        A little game for practicing Japanese hiragana and katakana. 
+    </description>
+
+    <author href="https://goldsaucer.co.uk" email="support@goldsaucer.co.uk">
+        Mathias Kahl
+    </author>
+    
+    <preference name="permissions" value="none"/>
+    <preference name="orientation" value="portrait" />  
+
+</widget>

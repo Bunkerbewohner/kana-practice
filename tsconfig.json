@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "module": "amd",
+        "target": "es5",
+        "sourceRoot": "src",
+        "jsx": "react",
+        "outFile": "lib/app.js",
+        "noImplicitAny": false,
+        "sourceMap": true
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}
