@@ -174,7 +174,7 @@ export default class SwapBoard extends React.Component<SwapBoardProps, SwapBoard
             if (optimized.indexOf(cur.flashcard) >= 0) continue;
             
             // dont optimize cards past a certain confidence (50%)
-            //if (getProgress(cur.flashcard.stack, cur.flashcard.text) >= 50) continue;
+            if (getProgress(cur.flashcard.stack, cur.flashcard.text) >= 50 && Math.random() > 0.33) continue;
             
             const neighbors = cardNeighbors(result, cur)
             const matchNeighbor = neighbors.filter(c => c.flashcard == cur.flashcard)
