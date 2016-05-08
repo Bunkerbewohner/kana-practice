@@ -60,17 +60,18 @@ export default class GameOver extends React.Component<Props, State> {
         return Object.keys(progress).map(p => progress[p]).sort((a, b) =>  getProgress(a.stack, a.text) - getProgress(b.stack, b.text)).map(p => {
             var now = Math.min(100, getProgress(p.stack, p.text))
             var before = Math.max(0, now - p.progress)
+            var value = this.state.showBefore ? before : now
             
             var style = {
-                width: (this.state.showBefore ? before : now) + "%",
-                backgroundColor: this.progressToColor(before)
+                width: value + "%",
+                backgroundColor: this.progressToColor(value)
             }
             
             return <div className="stat">
                 <label>{p.text}</label>
                 <div className="progress">
                     <div className="progress-bar">
-                        <span className="percent">{this.state.showBefore ? before : now}%</span>
+                        <span className="percent">{value}%</span>
                         <div className="bar" style={style}></div>
                     </div>
                 </div>
