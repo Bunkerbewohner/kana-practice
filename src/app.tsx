@@ -41,7 +41,7 @@ export default class App extends React.Component<Store, AppState> {
                         {this.state.gameover ? <GameOver onBack={() => this.onBack()} onPlay={() => this.onPlayAgain()} progress={this.state.progressed}/> : null}
                     </div>          
                     <SwapBoard cards={props.cards} size={6} onBack={() => this.onBack()}
-                    onMiss={(card) => this.onMiss(card)} onMatch={(card) => this.onMatch(card)} onFinished={() => this.onFinished()}/>
+                        onMiss={(card) => this.onMiss(card)} onMatch={(card) => this.onMatch(card)} onFinished={() => this.onFinished()}/>
                 </div>        
         }       
     }
@@ -59,22 +59,22 @@ export default class App extends React.Component<Store, AppState> {
         persist()
     }
     
-    onMiss(card: FlashCard) {        
+    onMiss(card: FlashCard) {                
         const progressed = this.state.progressed
         const record = progressed[`${card.stack}.${card.text}`] || {stack: card.stack, text: card.text, progress: 0}
-        record.progress = Math.max(0, record.progress - 30)                
+        record.progress = record.progress - 30                
         progressed[`${card.stack}.${card.text}`] = record
         this.setState({progressed})
-        sounds.miss.play()        
+        sounds.miss.play()                
     }
     
     onMatch(card: FlashCard) {
         const progressed = this.state.progressed
         const record = progressed[`${card.stack}.${card.text}`] || {stack: card.stack, text: card.text, progress: 0}
-        record.progress = Math.min(100, record.progress + 15)                
+        record.progress = record.progress + 15                
         progressed[`${card.stack}.${card.text}`] = record
         this.setState({progressed})
-        sounds.match.play()
+        sounds.match.play()        
     }
     
     onFinished() {
